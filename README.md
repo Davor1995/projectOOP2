@@ -26,3 +26,46 @@ Das Bibliotheksmanagement-System ist eine Java-Anwendung mit einer grafischen Be
 
 8. **Build-Prozess:** Das Projekt wird als Maven-Projekt organisiert und kann mit Maven gebaut werden. Es wird eine ausführbare Version zur Verfügung gestellt.
 
+# Implementierung und Fehlerbehebung der Buchspeicherung in `BookService`
+
+## Einleitung
+Diese Dokumentation beschreibt die Funktionalitäten und den Umgang mit der `BookService`-Klasse, die für das Speichern und Laden von Bücherdaten in einem JSON-Format verantwortlich ist. Ziel ist es, eine nachhaltige und erweiterbare Lösung zu bieten, die leicht zu warten und zu verstehen ist.
+
+## Umgebung und Abhängigkeiten
+- **Java-Version:** Java SE 21
+- **Externe Bibliotheken:**
+   - **Gson** für JSON-Handling:
+     ```xml
+     <dependency>
+         <groupId>com.google.code.gson</groupId>
+         <artifactId>gson</artifactId>
+         <version>2.8.9</version>
+     </dependency>
+     ```
+
+## Klassenstruktur
+### Klasse `Book`
+- **Attribute:**
+   - `title`: Titel des Buches.
+   - `author`: Autor des Buches.
+- **Methoden:**
+   - Konstruktoren, Getter und Setter.
+- **Besonderheiten:** Implementiert `Serializable` für die Serialisierung.
+
+### Klasse `BookService`
+- **Methoden:**
+   - `addBook(Book book)`: Fügt ein Buch hinzu und speichert die Änderungen.
+   - `getAllBooks()`: Lädt alle gespeicherten Bücher und gibt sie zurück.
+   - `saveBooksToFile()`: Speichert die Bücherliste in einer Datei.
+   - `loadBooksFromFile()`: Lädt die Bücherliste aus einer Datei.
+
+## Methodenbeschreibung
+### Speichern der Bücher
+Speichert die aktuelle Liste von Büchern in einer JSON-Datei:
+```java
+public void saveBooksToFile() throws IOException {
+    try (Writer writer = new FileWriter(FILE_PATH)) {
+        gson.toJson(books, writer);
+    }
+}
+
