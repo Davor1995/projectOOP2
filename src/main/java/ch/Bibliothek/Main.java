@@ -43,7 +43,11 @@ public class Main extends Application {
             String author = authorField.getText();
             if (!title.isEmpty() && !author.isEmpty()) {
                 Book book = new Book(title, author);
-                bookService.addBook(book);
+                try {
+                    bookService.addBook(book);
+                } catch (IOException ex) {
+                    throw new RuntimeException(ex);
+                }
                 bookListView.getItems().add(title + " von " + author);
                 titleField.clear();
                 authorField.clear();

@@ -7,20 +7,26 @@ import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class BookService {
     private static final String FILE_PATH = "src/main/resources/buecherListe.json";
     private final Gson gson = new Gson();
     private List<Book> books = new ArrayList<>();
+    private static final Logger logger = LoggerFactory.getLogger(BookService.class);
+
 
     // Buch hinzufügen
-    public void addBook(Book book) {
+    public void addBook(Book book) throws IOException {
 
         books.add(book);
         try {
             saveBooksToFile();
+            logger.debug("Book added and saved: {}", book);
         } catch (IOException e) {
-            System.out.println("Failed to save books: " + e.getMessage());
+            logger.error("Error saving books: {}", e.getMessage());
+            throw e;
         }
     }
 
