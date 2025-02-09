@@ -1,0 +1,13 @@
+ch\Bibliothek\model\Book.class
+ch\Bibliothek\model\Client.class
+ch\Bibliothek\model\User.class
+ch\Bibliothek\service\LibraryService.class
+ch\Bibliothek\service\ClientService$1.class
+ch\Bibliothek\LibraryApp$1.class
+ch\Bibliothek\service\ClientService.class
+ch\Bibliothek\LibraryApp.class
+ch\Bibliothek\model\BookStatus.class
+ch\Bibliothek\LibraryApp$2.class
+ch\Bibliothek\LibraryApp$3.class
+ch\Bibliothek\service\BookService$1.class
+ch\Bibliothek\service\BookService.class

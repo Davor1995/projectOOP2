@@ -2,64 +2,87 @@ package ch.Bibliothek.service;
 
 import ch.Bibliothek.model.Book;
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import java.util.Optional;
 
 public class BookService {
-    private static final String FILE_PATH = "src/main/resources/buecherListe.json";
-    private final Gson gson = new Gson();
     private List<Book> books = new ArrayList<>();
     private static final Logger logger = LoggerFactory.getLogger(BookService.class);
+    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static final String BOOKS_FILE = "src/main/resources/buecherListe.json"; // Pfad zur JSON-Datei
 
-
-    // Buch hinzufügen
     public void addBook(Book book) throws IOException {
-
         books.add(book);
-        try {
+        saveBooksToFile();
+    }
+
+    public void deleteBook(Book book) throws IOException {
+        books.remove(book);
+        saveBooksToFile();
+    }
+
+    public void updateBook(Book book) throws IOException {
+        if (book.getId() == null) {
+            logger.error("Attempt to update book without ID");
+            throw new IllegalArgumentException("Book must have an ID to update");
+        }
+        Optional<Book> bookToUpdate = books.stream()
+                .filter(b -> b.getId().equals(book.getId()))
+                .findFirst();
+
+        if (bookToUpdate.isPresent()) {
+            Book foundBook = bookToUpdate.get();
+            foundBook.setTitle(book.getTitle());
+            foundBook.setAuthor(book.getAuthor());
+            foundBook.setBorrowed(book.isBorrowed());
+            foundBook.setBorrowedByClientId(book.getBorrowedByClientId());
             saveBooksToFile();
-            logger.debug("Book added and saved: {}", book);
+        } else {
+            logger.error("No book found with ID: {}", book.getId());
+            throw new IOException("No book found with ID: " + book.getId());
+        }
+    }
+
+    public List<Book> getAllBooks() {
+        return new ArrayList<>(books);
+    }
+
+    private void saveBooksToFile() throws IOException {
+        try (Writer writer = new FileWriter(BOOKS_FILE)) {
+            gson.toJson(books, writer);
         } catch (IOException e) {
-            logger.error("Error saving books: {}", e.getMessage());
+            logger.error("Failed to save books", e);
             throw e;
         }
     }
 
-    // Alle Bücher ausgeben
-    public List<Book> getAllBooks() {
-        try {
-            loadBooksFromFile();
-        } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Failed to load books: " + e.getMessage());
+    public void loadBooksFromFile() {
+        File file = new File("src/main/resources/buecherListe.json");
+        if (!file.exists()) {
+            logger.error("Books file does not exist: {}", file.getAbsolutePath());
+            return;
         }
-        return books;
-    }
 
-    // Bücher in Json speichern
-    public void saveBooksToFile() throws IOException {
-        try (Writer writer = new FileWriter(FILE_PATH)) {
-            gson.toJson(books, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    // Methode zum Laden von Büchern
-    public void loadBooksFromFile() throws IOException, ClassNotFoundException {
-        try (Reader reader = new FileReader(FILE_PATH)) {
-            books = new Gson().fromJson(reader, new TypeToken<List<Book>>() {}.getType());
+        try (Reader reader = new FileReader(file)) {
+            Type listOfBooksType = new TypeToken<ArrayList<Book>>() {}.getType();
+            books = gson.fromJson(reader, listOfBooksType);
             if (books == null) {
                 books = new ArrayList<>();
             }
+            logger.info("Loaded books: {}", books.size());
         } catch (FileNotFoundException e) {
-            books = new ArrayList<>();
+            logger.error("Failed to find the books file: {}", file.getAbsolutePath(), e);
         } catch (IOException e) {
-            e.printStackTrace();
+            logger.error("Failed to read the books file: {}", file.getAbsolutePath(), e);
         }
     }
+
 }

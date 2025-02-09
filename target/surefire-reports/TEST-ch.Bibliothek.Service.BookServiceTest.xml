@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="ch.Bibliothek.Service.BookServiceTest" time="0.402" tests="3" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\daan3\Desktop\Projekt OOP2\projectOOP2\target\test-classes;C:\Users\daan3\Desktop\Projekt OOP2\projectOOP2\target\classes;C:\Users\daan3\.m2\repository\org\slf4j\slf4j-api\2.1.0-alpha1\slf4j-api-2.1.0-alpha1.jar;C:\Users\daan3\.m2\repository\ch\qos\logback\logback-classic\1.4.12\logback-classic-1.4.12.jar;C:\Users\daan3\.m2\repository\ch\qos\logback\logback-core\1.4.12\logback-core-1.4.12.jar;C:\Users\daan3\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\daan3\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\daan3\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\daan3\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\daan3\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\daan3\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-controls\20\javafx-controls-20.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-controls\20\javafx-controls-20-win.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-graphics\20\javafx-graphics-20.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-graphics\20\javafx-graphics-20-win.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-base\20\javafx-base-20.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-base\20\javafx-base-20-win.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-fxml\20\javafx-fxml-20.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-fxml\20\javafx-fxml-20-win.jar;C:\Users\daan3\.m2\repository\com\google\code\gson\gson\2.10\gson-2.10.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Zurich"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="CH"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\jdk-21.0.4\bin"/>
+    <property name="sun.java.command" value="C:\Users\daan3\AppData\Local\Temp\surefire12265756303960350907\surefirebooter-20250209233846722_3.jar C:\Users\daan3\AppData\Local\Temp\surefire12265756303960350907 2025-02-09T23-38-46_613-jvmRun1 surefire-20250209233846722_1tmp surefire_0-20250209233846722_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\daan3\Desktop\Projekt OOP2\projectOOP2\target\test-classes;C:\Users\daan3\Desktop\Projekt OOP2\projectOOP2\target\classes;C:\Users\daan3\.m2\repository\org\slf4j\slf4j-api\2.1.0-alpha1\slf4j-api-2.1.0-alpha1.jar;C:\Users\daan3\.m2\repository\ch\qos\logback\logback-classic\1.4.12\logback-classic-1.4.12.jar;C:\Users\daan3\.m2\repository\ch\qos\logback\logback-core\1.4.12\logback-core-1.4.12.jar;C:\Users\daan3\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.8.2\junit-jupiter-api-5.8.2.jar;C:\Users\daan3\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\daan3\.m2\repository\org\junit\platform\junit-platform-commons\1.8.2\junit-platform-commons-1.8.2.jar;C:\Users\daan3\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;C:\Users\daan3\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.8.2\junit-jupiter-engine-5.8.2.jar;C:\Users\daan3\.m2\repository\org\junit\platform\junit-platform-engine\1.8.2\junit-platform-engine-1.8.2.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-controls\20\javafx-controls-20.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-controls\20\javafx-controls-20-win.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-graphics\20\javafx-graphics-20.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-graphics\20\javafx-graphics-20-win.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-base\20\javafx-base-20.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-base\20\javafx-base-20-win.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-fxml\20\javafx-fxml-20.jar;C:\Users\daan3\.m2\repository\org\openjfx\javafx-fxml\20\javafx-fxml-20-win.jar;C:\Users\daan3\.m2\repository\com\google\code\gson\gson\2.10\gson-2.10.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\daan3"/>
+    <property name="user.language" value="de"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-07-16"/>
+    <property name="java.home" value="C:\Program Files\jdk-21.0.4"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\daan3\Desktop\Projekt OOP2\projectOOP2"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\daan3\AppData\Local\Temp\surefire12265756303960350907\surefirebooter-20250209233846722_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.4+8-LTS-274"/>
+    <property name="user.name" value="daan3"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
+    <property name="localRepository" value="C:\Users\daan3\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\daan3\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.4"/>
+    <property name="user.dir" value="C:\Users\daan3\Desktop\Projekt OOP2\projectOOP2"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\jdk-21.0.4\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\apache-maven-3.9.8\bin;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\daan3\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\Java\jdk-11;C:\Program Files\apache-maven-3.6.1\bin;C:\Program Files\Common Files\Oracle\Java\javapath;%JAVA_HOME\bin%;%JAVA_HOME\bin%;C:\Program Files\dotnet\;C:\Program Files (x86)\Microsoft SQL Server\160\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files\Microsoft SQL Server\160\DTS\Binn\;C:\Users\daan3\AppData\Local\Microsoft\WindowsApps;C:\Users\daan3\AppData\Roaming\nvm;C:\Program Files\nodejs;C:\Program Files\apache-maven-3.6.1\bin;%JAVA_HOME\bin%;C:\Users\daan3\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\daan3\.dotnet\tools;C:\Windows\System32;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.version" value="21.0.4+8-LTS-274"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="testAddBook" classname="ch.Bibliothek.Service.BookServiceTest" time="0.364">
+    <system-out><![CDATA[2025-02-09 23:38:47 [main] DEBUG ch.Bibliothek.model.Book - Book created with ID: 0d7030e5-326c-4b7a-9a19-af4194b363fe
+]]></system-out>
+    <system-err><![CDATA[SLF4J(I): Connected with provider of type [ch.qos.logback.classic.spi.LogbackServiceProvider]
+]]></system-err>
+  </testcase>
+  <testcase name="testBorrowAndReturnBook" classname="ch.Bibliothek.Service.BookServiceTest" time="0.004">
+    <system-out><![CDATA[2025-02-09 23:38:47 [main] DEBUG ch.Bibliothek.model.Book - Book created with ID: 71f8be0f-42c0-4ec6-b084-2abd61c014c7
+]]></system-out>
+  </testcase>
+  <testcase name="testLoadAndSaveBooks" classname="ch.Bibliothek.Service.BookServiceTest" time="0.008">
+    <system-out><![CDATA[2025-02-09 23:38:47 [main] DEBUG ch.Bibliothek.model.Book - Book created with ID: 9a504d01-4180-4555-9fcb-adab1ca8041d
+2025-02-09 23:38:47 [main] INFO  ch.Bibliothek.service.BookService - Loaded books: 1
+]]></system-out>
+  </testcase>
+</testsuite>

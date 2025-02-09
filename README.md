@@ -1,32 +1,66 @@
-# Bibliotheksmanagement-System
+# 📚 Library Management System – OOP2 Abschlussprojekt
 
-## Projektbeschreibung
-Das Bibliotheksmanagement-System ist eine Java-Anwendung mit einer grafischen Benutzeroberfläche (JavaFX), die es Benutzern ermöglicht, Bücher und Leser zu verwalten sowie Buchausleihen und -rückgaben durchzuführen. Die Anwendung ermöglicht es, neue Bücher und Leser hinzuzufügen, bestehende Einträge zu bearbeiten und zu löschen. Außerdem können Bücher an Leser ausgeliehen und zurückgegeben werden.
+## 1. Überblick
+Das **Library Management System** ist eine JavaFX-Anwendung, die eine einfache Bibliotheksverwaltung ermöglicht.  
+Benutzer können **Bücher und Kunden verwalten**, Bücher ausleihen und zurückgeben.  
+Alle Daten werden **lokal in JSON-Dateien gespeichert**, sodass sie auch nach einem Neustart erhalten bleiben.
 
-## Hauptanforderungen
-1. **Benutzeroberfläche (JavaFX):** Die Anwendung verfügt über eine intuitive grafische Oberfläche, über die der Benutzer Bücher und Leser pflegen sowie Ausleihen und Rückgaben verwalten kann.
-2. **Objekttypen:**
-    - **Bücher:** Verwaltung von Titel, Autor, Erscheinungsjahr und ISBN.
-    - **Leser:** Verwaltung von Name, Mitgliedsnummer und Kontaktdaten.
-3. **Buchausleihe:** Benutzer können Bücher an Leser ausleihen und Rückgaben durchführen. Dabei wird festgehalten, wann ein Buch ausgeliehen und zurückgegeben wurde.
-4. **Persistenz:** Die Daten werden lokal ohne externe Datenbank gespeichert, sodass sie auch nach einem Neustart der Anwendung verfügbar sind.
-5. **Testabdeckung:** Es werden Tests erstellt, um die Kernfunktionalitäten der Anwendung zu überprüfen.
-6. **Einsatz von Enums und anderen Techniken:**
-    - **Enum:** Verwendung von Enums für Buchkategorien wie „Roman“, „Sachbuch“, „Science-Fiction“.
-    - **Vererbung und Interfaces:** Nutzung von Vererbung und Interfaces zur Unterstützung der Anwendungsstruktur.
-    - **Collections und Sortierung:** Einsatz von Collections zur Verwaltung von Büchern und Lesern, inklusive Sortierfunktionalitäten.
-    - **Lambdas und Streams:** Optimierter Zugriff auf Daten durch den Einsatz von Lambdas und Streams.
-7. **Fehlerbehandlung und Logging:** Umfassende Fehlerbehandlung und Logging zur Unterstützung der Fehleranalyse.
-8. **Build-Prozess:** Das Projekt ist als Maven-Projekt organisiert und kann über Maven gebaut und verwaltet werden.
+## 2. Funktionen
+- 📖 **Bücherverwaltung:** Bücher hinzufügen, bearbeiten und löschen
+- 👤 **Kundenverwaltung:** Kunden hinzufügen und bearbeiten
+- 🔄 **Bücher ausleihen & zurückgeben**
+- 💾 **Daten bleiben erhalten (JSON-Speicherung)**
+- 🎨 **Einfache JavaFX-Benutzeroberfläche**
 
-## Technische Details
+---
 
-### Umgebung und Abhängigkeiten
-- **Java-Version:** Java SE 21
-- **Externe Bibliotheken:** Einsatz von Gson für das JSON-Handling und JavaFX für die Benutzeroberfläche.
-  ```xml
-  <dependency>
-    <groupId>com.google.code.gson</groupId>
-    <artifactId>gson</artifactId>
-    <version>2.8.9</version>
-  </dependency>
+## 3. Screenshots
+### **📌 Hauptansicht (Bücherverwaltung)**
+![Library GUI](src/main/resources/Bücherverwaltung.png)
+
+### **📌 Bücher ausleihen**
+![Lend Book](src/main/resources/Ausleihen.png)
+
+---
+
+## 4. Technische Umsetzung
+### **🛠 Verwendete Technologien**
+- **JavaFX** für die Benutzeroberfläche
+- **Gson** zur JSON-Speicherung der Daten
+- **JUnit** für Unit-Tests
+- **SLF4J / Logback** für Logging
+- **Maven** zur Verwaltung der Abhängigkeiten
+
+### **📂 Projektstruktur**
+```txt
+LibraryApp/
+│── src/main/java/ch/Bibliothek/
+│   ├── model/         # Enthält die Datenmodelle (Book, Client)
+│   ├── service/       # Enthält die Service-Klassen zur Verwaltung der Daten
+│   ├── LibraryApp.java  # Hauptklasse mit der GUI
+│── src/test/java/      # Unit-Tests
+│── resources/          # JSON-Dateien für gespeicherte Daten
+│── README.md           # Diese Dokumentation
+│── requirements.md     # Projektanforderungen
+│── pom.xml             # Maven-Projektdatei
+```
+
+## 5. Installation & Nutzung
+
+### 🔧 Voraussetzungen
+- Java 17+
+- Maven installiert
+
+### 🚀 Starten der Anwendung
+
+#### 1️⃣ Klonen des Repositories:
+```sh
+git clone https://github.com/dein-repo/library-app.git
+```
+
+#### 2️⃣ Mit Maven bauen:
+mvn package
+
+#### 3️⃣ Starten der Anwendung:
+java -jar target/libraryapp.jar
+

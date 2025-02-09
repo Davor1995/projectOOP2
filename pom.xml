@@ -80,5 +80,6 @@
                 </configuration>
             </plugin>
         </plugins>
-    </build>
+            <finalName>libraryapp</finalName>
+        </build>
 </project>
